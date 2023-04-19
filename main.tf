@@ -84,7 +84,7 @@ locals = {
 }
 resource "aws_route53_record" "my_dns" {
   zone_id = aws_route53_record.primary.zone_id
-  name = "${digitalocean_tag.email_tag.id}-${data.aws_route_zone.primary.name}"
+  name = "${digitalocean_tag.email_tag.id}.${data.aws_route_zone.primary.name}"
   ttl = "500"
   type = "A"
   records = locals.vps_ip
